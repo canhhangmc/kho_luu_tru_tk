@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ | Doanh Nghiệp Cao Cấp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: #4fc3f7;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding: 60px 0;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-form {
+            flex: 2;
+            min-width: 300px;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: #1e3c72;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eaeff5;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 70px;
+            height: 2px;
+            background: #4fc3f7;
+        }
+
+        /* Contact Info Styles */
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .info-icon {
+            background: #f0f7ff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: #1e3c72;
+            font-size: 20px;
+        }
+
+        .info-content h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #1e3c72;
+        }
+
+        .info-content p {
+            color: #666;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f0f7ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1e3c72;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: #1e3c72;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1e3c72;
+            font-size: 15px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: #f9fbfd;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #4fc3f7;
+            box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.15);
+            background-color: white;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .select-multiple {
+            height: 120px;
+            padding: 10px;
+        }
+
+        .select-multiple option {
+            padding: 8px 12px;
+        }
+
+        .form-note {
+            font-size: 14px;
+            color: #888;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-group input {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(to right, #2a5298, #1e3c72);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(30, 60, 114, 0.25);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #4caf50;
+            text-align: center;
+        }
+
+        .success-message i {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: #ccc;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #4fc3f7;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .header h1 {
+                font-size: 28px;
+            }
+            
+            .contact-info, .contact-form {
+                padding: 30px 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 20px 0;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .contact-info, .contact-form {
+                padding: 25px 20px;
+            }
+            
+            .info-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .info-icon {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-crown"></i>
+                <span>ELITE ENTERPRISE</span>
+            </div>
+            <h1>Liên Hệ Với Chúng Tôi</h1>
+            <p>Chúng tôi luôn sẵn sàng lắng nghe và hỗ trợ bạn. Hãy gửi thông điệp của bạn và chúng tôi sẽ phản hồi trong thời gian sớm nhất.</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h2 class="section-title">Thông Tin Liên Hệ</h2>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Địa Chỉ Văn Phòng</h3>
+                        <p>Tầng 12, Tòa nhà Sunrise, 123 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Số Điện Thoại</h3>
+                        <p>+84 28 1234 5678</p>
+                        <p>Hotline: 1800 1234</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Email</h3>
+                        <p>info@elite-enterprise.com</p>
+                        <p>support@elite-enterprise.com</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Giờ Làm Việc</h3>
+                        <p>Thứ 2 - Thứ 6: 8:00 - 18:00</p>
+                        <p>Thứ 7: 8:00 - 12:00</p>
+                    </div>
+                </div>
+                
+                <h3 class="section-title" style="font-size: 20px; margin-top: 40px;">Kết Nối Với Chúng Tôi</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h2 class="section-title">Gửi Thông Điệp Của Bạn</h2>
+                <p style="margin-bottom: 25px; color: #666;">Vui lòng điền đầy đủ thông tin bên dưới và chúng tôi sẽ liên hệ lại với bạn trong thời gian sớm nhất.</p>
+                
+                <form name="contact" method="POST" netlify>
+                    <!-- Netlify Form Recognition -->
+                    <input type="hidden" name="form-name" value="contact">
+                    
+                    <div class="form-group">
+                        <label for="name">Họ và Tên *</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Nguyễn Văn A" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Địa chỉ Email *</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="example@company.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Số Điện Thoại</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="+84 123 456 789">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="role">Vai Trò Của Bạn (Có thể chọn nhiều) *</label>
+                        <select id="role" name="role[]" class="form-control select-multiple" multiple required>
+                            <option value="leader">Lãnh đạo / Quản lý</option>
+                            <option value="employee">Nhân viên</option>
+                            <option value="partner">Đối tác</option>
+                            <option value="client">Khách hàng</option>
+                            <option value="investor">Nhà đầu tư</option>
+                            <option value="supplier">Nhà cung cấp</option>
+                            <option value="other">Khác</option>
+                        </select>
+                        <p class="form-note">Giữ phím Ctrl (Windows) hoặc Command (Mac) để chọn nhiều tùy chọn</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Chủ Đề</label>
+                        <select id="subject" name="subject" class="form-control">
+                            <option value="">Vui lòng chọn chủ đề</option>
+                            <option value="general">Thông tin chung</option>
+                            <option value="support">Hỗ trợ kỹ thuật</option>
+                            <option value="sales">Tư vấn bán hàng</option>
+                            <option value="partnership">Hợp tác đối tác</option>
+                            <option value="feedback">Phản hồi & Góp ý</option>
+                            <option value="other">Vấn đề khác</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Nội Dung Tin Nhắn *</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="Xin vui lòng mô tả chi tiết yêu cầu của bạn..." required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter" checked>
+                            <label for="newsletter">Tôi muốn nhận bản tin và cập nhật từ Elite Enterprise</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Gửi Thông Điệp
+                    </button>
+                </form>
+                
+                <!-- Success Message (hidden by default) -->
+                <div id="successMessage" class="success-message">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Tin nhắn của bạn đã được gửi thành công!</h3>
+                    <p>Cảm ơn bạn đã liên hệ với chúng tôi. Chúng tôi sẽ phản hồi lại trong thời gian sớm nhất.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Elite Enterprise. Tất cả các quyền được bảo lưu.</p>
+            <p>Thiết kế và phát triển bởi đội ngũ chuyên nghiệp của chúng tôi</p>
+            <div class="footer-links">
+                <a href="#">Chính sách bảo mật</a>
+                <a href="#">Điều khoản sử dụng</a>
+                <a href="#">Sitemap</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        const form = document.querySelector('form[name="contact"]');
+        const successMessage = document.getElementById('successMessage');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(form);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const roles = formData.getAll('role[]');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            const newsletter = formData.get('newsletter') ? 'Có' : 'Không';
+            
+            // Show console log (for testing)
+            console.log('=== FORM DATA ===');
+            console.log('Name:', name);
+            console.log('Email:', email);
+            console.log('Roles:', roles);
+            console.log('Subject:', subject);
+            console.log('Message:', message);
+            console.log('Newsletter:', newsletter);
+            console.log('=================');
+            
+            // In a real Netlify deployment, the form would auto-submit
+            // For demo purposes, we'll show a success message
+            form.style.display = 'none';
+            successMessage.style.display = 'block';
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth' });
+            
+            // In a real implementation, you would submit the form to Netlify
+            // Uncomment the line below to actually submit the form
+            // this.submit();
+        });
+        
+        // Select multiple helper text
+        const roleSelect = document.getElementById('role');
+        const formNote = document.querySelector('.form-note');
+        
+        roleSelect.addEventListener('change', function() {
+            const selectedCount = Array.from(roleSelect.selectedOptions).length;
+            if (selectedCount > 0) {
+                formNote.textContent = `Đã chọn ${selectedCount} vai trò. Giữ phím Ctrl (Windows) hoặc Command (Mac) để chọn nhiều tùy chọn`;
+            } else {
+                formNote.textContent = 'Giữ phím Ctrl (Windows) hoặc Command (Mac) để chọn nhiều tùy chọn';
+            }
+        });
+        
+        // Phone number formatting
+        const phoneInput = document.getElementById('phone');
+        phoneInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 0) {
+                if (!value.startsWith('+')) {
+                    value = '+84' + value;
+                }
+                e.target.value = value.replace(/(\+\d{2})(\d{3})(\d{3})(\d{3})/, '$1 $2 $3 $4');
+            }
+        });
+    </script>
+</body>
+</html>
